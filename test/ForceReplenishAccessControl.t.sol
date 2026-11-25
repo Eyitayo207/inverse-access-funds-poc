@@ -1,8 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.21;
 
-import {Test} from "../lib/forge-std/src/forge-std/Test.sol";
+import {Test} from "forge-std/Test.sol";
 import {MockDolaStablecoin} from "../src/mocks/MockDolaStablecoin.sol";
+
+// IERC20 interface used by the RewardEngine: DOLA has transfer + balanceOf.
+interface IERC20 {
+    function transfer(address to, uint256 amount) external;
+    function balanceOf(address account) external view returns (uint256);
+}
 
 /**
  * Finding 002 — `Market.forceReplenish()` is public and pays the reward to ANY caller.
