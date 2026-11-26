@@ -31,7 +31,7 @@ forge test -vvv
 
 ## Why the two harnesses differ
 
-Finding 001 is a self-contained deploy-and-call test: we construct the
+Finding 001 is a self-contained deploy-and-call test: I construct the
 misconfigured module with hard-coded mock addresses and `forge test` replays it.
 
 Finding 002's *exploit* (calling the real `Market.forceReplenish` for a live
